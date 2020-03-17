@@ -1,6 +1,5 @@
 <!-- Future Plans
     - Die upon wall
-    - Can't go back into itself
     - Apple doesn't spawn inside snake
 -->
 
@@ -11,7 +10,7 @@
         canv = document.getElementById("gc");
         ctx = canv.getContext("2d");
         document.addEventListener("keydown", keyPush);
-        setInterval(game, 1000 / 15);
+        setInterval(game, 1000 / 10);
     }
 
     //Variables
@@ -66,18 +65,38 @@
     //Listener for arrow keys
     function keyPush(evt) {
         switch (evt.keyCode) {
+            //Left
             case 37:
-                xv = -1; yv = 0;
-                break;
+                if (xv == 1 && yv == 0) {
+                    break;
+                } else {
+                    xv = -1; yv = 0;
+                    break;
+                }
+            //Up
             case 38:
-                xv = 0; yv = -1;
-                break;
+                if (xv == 0 && yv == 1) {
+                    break;
+                } else {
+                    xv = 0; yv = -1;
+                    break;
+                }
+            //Right
             case 39:
-                xv = 1; yv = 0;
-                break;
+                if (xv == -1 && yv == 0) {
+                    break;
+                } else {
+                    xv = 1; yv = 0;
+                    break;
+                }
+            //Down
             case 40:
-                xv = 0; yv = 1;
-                break;
+                if (xv == 0 && yv == -1) {
+                    break;
+                } else {
+                    xv = 0; yv = 1;
+                    break;
+                }
         }
     }
 </script>
