@@ -1,11 +1,56 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <style type="text/css">
+        div.nospaces {
+            margin: 0;
+            display: inline-block;
+            float: left;
+        }
+    </style>
+</head>
+
 <body>
-    <p id="Quine"></p>
+    <a class="nospaces" id="less than"></a>
+    <a class="nospaces" id="doct"></a>
+    <p id="less than"></p>
+
     <script>
-        document.getElementById("Quine").innerHTML = "time to start";
+        var q = String.fromCharCode(34);
+        var lt = String.fromCharCode(60);
+        var gt = String.fromCharCode(62);
+        document.getElementById("less than").innerHTML = lt;
+        document.getElementById("doct").innerHTML = "!DOCTYPE html";
     </script>
 </body>
 
 </html>
+
+<!--
+<!DOCTYPE html>
+<html>
+
+<body>
+    <p id="less than"></p>
+    <p id="less than"></p>
+    <p id="less than"></p>
+
+    <script>
+        var q = String.fromCharCode(34);
+        var lt = String.fromCharCode(60);
+        var gt = String.fromCharCode(62);
+        var lines = [
+            //string.concat(lt, "!DOCTYPE html"),
+            "<>",
+            gt];
+        for (i = 0; i < lines.length; i++) {
+            //document.getElementById("Quine").innerHTML += lines[i] + "<br>";
+        }
+
+
+        document.getElementById("Quine").innerHTML = q.concat("why");
+    </script>
+</body>
+
+</html>-->
