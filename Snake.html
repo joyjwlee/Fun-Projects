@@ -1,7 +1,10 @@
-<!-- Future Plans
-    - Die upon wall
+<!-- 
+    Future Plans:
+    - Dynamic button with click event
+    - Button indicating if they want wall or not
 -->
 
+<!-- The Classic Snake Game -->
 <canvas id="gc" width="400" height="400"></canvas>
 <script>
     //Canvas
@@ -45,6 +48,7 @@
             if (trail[i].x == px && trail[i].y == py) {
                 tail = 5;
             }
+            //Decided to keep snake go thru wall
         }
         trail.push({ x: px, y: py });
         while (trail.length > tail) {
