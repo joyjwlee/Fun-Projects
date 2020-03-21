@@ -1,6 +1,5 @@
 <!-- Future Plans
     - Die upon wall
-    - Apple doesn't spawn inside snake
 -->
 
 <canvas id="gc" width="400" height="400"></canvas>
@@ -52,11 +51,24 @@
             trail.shift();
         }
 
-        //Spawn and make apple
+        //Apple - if we intersect, increase tail size and spawn again
         if (ax == px && ay == py) {
             tail++;
-            ax = Math.floor(Math.random() * tc);
-            ay = Math.floor(Math.random() * tc);
+            //Make sure apple doesn't spawn inside snake
+            var isOut = false;
+            while (!isout) {
+                //Generate random position
+                ax = Math.floor(Math.random() * tc);
+                ay = Math.floor(Math.random() * tc);
+                //Loop through all snake componentns
+                for (var i = 0; i < trail.length; i++) {
+                    //If we are not inside, then make apple
+                    if (trail[i].x != ax && trail[i].y != ay) {
+                        isOut = true;
+                        break;
+                    }
+                }
+            }
         }
         ctx.fillStyle = "red";
         ctx.fillRect(ax * gs, ay * gs, gs - 2, gs - 2);
