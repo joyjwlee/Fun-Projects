@@ -55,18 +55,21 @@
         if (ax == px && ay == py) {
             tail++;
             //Make sure apple doesn't spawn inside snake
-            var isOut = false;
-            while (!isout) {
+            while (true) {
                 //Generate random position
                 ax = Math.floor(Math.random() * tc);
                 ay = Math.floor(Math.random() * tc);
                 //Loop through all snake componentns
+                var isOut = true;
                 for (var i = 0; i < trail.length; i++) {
                     //If we are not inside, then make apple
-                    if (trail[i].x != ax && trail[i].y != ay) {
-                        isOut = true;
+                    if (trail[i].x == ax && trail[i].y == ay) {
+                        isOut = false;
                         break;
                     }
+                }
+                if (isOut) {
+                    break;
                 }
             }
         }
