@@ -1,3 +1,5 @@
+// simple tic tac toe game that runs in your console
+
 import java.util.*;
 
 public class tictactoeConsole {
@@ -49,6 +51,7 @@ public class tictactoeConsole {
 
     public static void playGame() {
         int r, c, turn = 1;
+        boolean tied = false;
         while (winner() == '.') {
             if (turn == 1) {
                 System.out.println(p1 + ", please enter a row and a column");
@@ -76,25 +79,21 @@ public class tictactoeConsole {
                 grid[r][c] = 'O';
             }
             printBoard();
+            if (isTied()) {
+                System.out.println("The game is tied");
+                tied = true;
+                break;
+            }
             turn = 1 - turn;
         }
-        turn = 1 - turn;
-        if (turn == 1) {
-            System.out.println(p1 + " wins! Congratulations!!");
-        } else {
-            System.out.println(p2 + " wins! Congratulations!!");
-        }
-    }
-
-    public static boolean isValid(int r, int c) {
-        if (0 <= r && r < 3) {
-            if (0 <= c && c < 3) {
-                if (grid[r][c] == '.') {
-                    return true;
-                }
+        if (!tied) {
+            turn = 1 - turn;
+            if (turn == 1) {
+                System.out.println(p1 + " wins! Congratulations!!");
+            } else {
+                System.out.println(p2 + " wins! Congratulations!!");
             }
         }
-        return false;
     }
 
     // X, O, or .
@@ -119,5 +118,31 @@ public class tictactoeConsole {
 
         // otherwise no winner
         return '.';
+    }
+
+    public static boolean isValid(int r, int c) {
+        if (0 <= r && r < 3) {
+            if (0 <= c && c < 3) {
+                if (grid[r][c] == '.') {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean isTied() {
+        if (winner() == '.') {
+            int count = 0;
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (grid[i][j] != '.') {
+                        count++;
+                    }
+                }
+            }
+            return count == 9;
+        }
+        return false;
     }
 }
