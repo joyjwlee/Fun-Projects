@@ -1,14 +1,14 @@
 # LEARN OPENCV in 3 HOURS with Python | Including 3x Example Projects (2020)
-# READ: IMAGES - VIDEO - WEBCAM
+# READ IMAGES, VIDEO, and WEBCAM
 
 import cv2
 print("Packge imported")
 
 # show image
 """
-img = cv2.imread("Resources/lena.png") # read in image from path
-cv2.imshow("Output", img) # display image
-cv2.waitKey(0) # wait MS, 0 is indefinite
+img = cv2.imread("Resources/lena.png")  # read in image from path
+cv2.imshow("Output", img)  # display image
+cv2.waitKey(0)  # wait MS, 0 is indefinite
 """
 
 # show video capture
