@@ -59,10 +59,42 @@ public class tictactoeConsole {
             r = sc.nextInt();
             System.out.print("Col: ");
             c = sc.nextInt();
-
+            r--;
+            c--;
+            while (!isValid(r, c)) {
+                System.out.println("That was not valid. Please enter again.");
+                System.out.print("Row: ");
+                r = sc.nextInt();
+                System.out.print("Col: ");
+                c = sc.nextInt();
+                r--;
+                c--;
+            }
+            if (turn == 1) {
+                grid[r][c] = 'X';
+            } else {
+                grid[r][c] = 'O';
+            }
             printBoard();
             turn = 1 - turn;
         }
+        turn = 1 - turn;
+        if (turn == 1) {
+            System.out.println(p1 + " wins! Congratulations!!");
+        } else {
+            System.out.println(p2 + " wins! Congratulations!!");
+        }
+    }
+
+    public static boolean isValid(int r, int c) {
+        if (0 <= r && r < 3) {
+            if (0 <= c && c < 3) {
+                if (grid[r][c] == '.') {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     // X, O, or .
