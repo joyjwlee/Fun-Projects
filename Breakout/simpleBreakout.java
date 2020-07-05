@@ -14,7 +14,7 @@ public class simpleBreakout extends JPanel implements Runnable, KeyListener {
     int baty = 490;
     Rectangle Bat = new Rectangle(batx, baty, 80, 10);
     // Initialize Bricks
-    int brickx = 140;
+    int brickx = 160;
     int bricky = 100;
     Rectangle[] Brick = new Rectangle[18];
     // Establish Boolean for Key Press
@@ -33,7 +33,6 @@ public class simpleBreakout extends JPanel implements Runnable, KeyListener {
     public static void main(String[] args) {
         JFrame frame = new JFrame();
         simpleBreakout game = new simpleBreakout();
-        JButton button = new JButton("restart");
         frame.setSize(700, 900);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(game);
@@ -61,7 +60,7 @@ public class simpleBreakout extends JPanel implements Runnable, KeyListener {
         g.fillRect(0, 502, 900, 400);
         // Panel Border
         g.setColor(Color.red);
-        g.drawRect(2, 2, 682, 500);
+        g.drawRect(2, 2, 680, 500);
 
         g.setColor(Color.white);
         Font escape = new Font("Arial", Font.BOLD, 10);
