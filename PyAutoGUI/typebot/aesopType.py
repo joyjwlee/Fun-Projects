@@ -10,6 +10,7 @@ f = open("aesop.txt", 'r')
 for word in f:
     for char in word:
         pyautogui.press(char, _pause=False)
-        time.sleep(0.01)
+        # time.sleep(0.05)  # realistic
+        time.sleep(0.01)  # pretty cool
     # pyautogui.typewrite(word)
     pyautogui.press("enter")
