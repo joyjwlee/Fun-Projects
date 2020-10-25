@@ -1,4 +1,5 @@
 # https://www.typingtest.com/select.html
+# https://www.typingtest.com/test.html?minutes=1&textfile=aesop.txt
 # cd PyAutoGui\typebot
 import pyautogui
 import time
